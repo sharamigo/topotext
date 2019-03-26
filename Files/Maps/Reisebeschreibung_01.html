@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Your map</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" /><link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="C:\Users\thomas\java_workspace\topotext-2\topotext-2\Files\Maps\Reisebeschreibung_01.htmltabbedContent.js"></script>
+<link rel="stylesheet" href="C:\Users\thomas\java_workspace\topotext-2\topotext-2\Files\Maps\Reisebeschreibung_01.htmltabs.css" />
+</head>
+<body>
+<div id="mapid" style="width: 100%; height:100%; position: fixed;top: 0;left: 0; height: 100%; z-index:1;"></div><script>
+var map = L.map('mapid').setView([51.505, -0.09], 2);
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+maxZoom: 18,
+attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+'Imagery � <a href="http://mapbox.com">Mapbox</a>',
+id: 'mapbox.streets'
+}).addTo(map);
+
+L.marker([52.52437, 13.41053]).addTo(map).bindPopup("<dl><dt><strong>Berlin</strong></dt><dd>  Lat: 52,52437 Lon: 13,41053</dd><dt>Formatted output: </dt><dd>52° 31' 27,7320''N 13° 24' 37,9080''E<dd>").openPopup();
+L.marker([52.522897175097626, 14.0017365108387]).addTo(map).bindPopup("<dl><dt><strong>New point</strong></dt><dd>  Lat: 52,52290 Lon: 14,00174</dd><dt>Formatted output: </dt><dd>52° 31' 22,4298''N 14° 0' 6,2514''E<dd>").openPopup();
+L.marker([51.62361659955807, 14.0017365108387]).addTo(map).bindPopup("<dl><dt><strong>New point</strong></dt><dd>  Lat: 51,62362 Lon: 14,00174</dd><dt>Formatted output: </dt><dd>51° 37' 25,0198''N 14° 0' 6,2514''E<dd>").openPopup();
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+<div id="nearby-box" style="z-index:1000; background-color: white; opacity: 0.7; width: 200px; position: relative; top: 50px;">
+
+<div class="tab">
+<button class="tablinks" onclick="openCity(event, 'Berlin')">Berlin</button>
+
+<button class="tablinks" onclick="openCity(event, 'Point1')">Point1</button>
+
+<button class="tablinks" onclick="openCity(event, 'Point2')">Point2</button>
+</div>
+<div id="Berlin" class="tabcontent">
+<strong>Nearby places towards Berlin</strong>
+<ul>
+<li>Berlin</li>
+<li>Mitte</li>
+<li>Nikolaiviertel</li>
+<li>Alt-Kölln</li>
+<li>Friedrichswerder</li>
+<li>Unter den Linden</li>
+<li>Prenzlauer Berg</li>
+<li>Dorotheenstadt</li>
+<li>Friedrichstadt</li>
+<li>Potsdamer Platz</li>
+<li>Kreuzberg</li>
+<li>Kottbusser Tor</li>
+<li>Tiergarten</li>
+<li>Friedrichshain</li>
+<li>Gesundbrunnen</li>
+<li>Carl-Herz-Ufer</li>
+<li>Hallesches Tor</li>
+<li>Warschauer Straße</li>
+<li>Maybachufer</li>
+<li>Görlitzer Park</li>
+</ul>
+</div>
+<div id="Point1" class="tabcontent">
+<strong>Nearby places towards Point1</strong>
+<ul>
+<li>Rotes Luch</li>
+<li>Garzin</li>
+<li>Liebenhof</li>
+<li>Werder</li>
+<li>Hoppegarten</li>
+<li>Garzau</li>
+<li>Hasenholz</li>
+<li>Kolonie Scholz</li>
+<li>Waldsieversdorf</li>
+<li>Ruhlsdorf</li>
+<li>Hohenstein</li>
+<li>Gladowshöhe</li>
+<li>Heidekrug</li>
+<li>Zinndorf</li>
+<li>Hanne</li>
+<li>Schlagenthin</li>
+<li>Rehfelde</li>
+<li>Buckow</li>
+<li>Kolonie Vogler</li>
+<li>Richterswalde</li>
+</ul>
+</div>
+<div id="Point2" class="tabcontent">
+<strong>Nearby places towards Point2</strong>
+<ul>
+<li>Chransdorf</li>
+<li>Grenzlandsiedlung</li>
+<li>Groß Jauer</li>
+<li>Rettchensdorf</li>
+<li>Woschkow</li>
+<li>Altdöbern</li>
+<li>Waldfrieden</li>
+<li>Neudöbern</li>
+<li>Anhalterkolonie</li>
+<li>Großräschen</li>
+<li>Klein Jauer</li>
+<li>Schöllnitz</li>
+<li>Klein Räschen</li>
+<li>Barzig</li>
+<li>Schmogro</li>
+<li>Lug</li>
+<li>Freienhufen</li>
+<li>Cunersdorf</li>
+<li>Lipten</li>
+<li>Dörrwalde</li>
+</ul>
+</div>
+</div>
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+</style>
+</body>
+</html>

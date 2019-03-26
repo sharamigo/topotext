@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Your map</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" /><link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="C:\Users\thomas\java_workspace\topotext-2\topotext-2\Files\Maps\Robinson_Crusoe_chapt01.htmltabbedContent.js"></script>
+<link rel="stylesheet" href="C:\Users\thomas\java_workspace\topotext-2\topotext-2\Files\Maps\Robinson_Crusoe_chapt01.htmltabs.css" />
+</head>
+<body>
+<div id="mapid" style="width: 100%; height:100%; position: fixed;top: 0;left: 0; height: 100%; z-index:1;"></div><script>
+var map = L.map('mapid').setView([51.505, -0.09], 2);
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+maxZoom: 18,
+attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+'Imagery � <a href="http://mapbox.com">Mapbox</a>',
+id: 'mapbox.streets'
+}).addTo(map);
+
+L.marker([40.71427, -74.00597]).addTo(map).bindPopup("<dl><dt><strong>New York</strong></dt><dd>  Lat: 40,71427 Lon: -74,00597</dd><dt>Formatted output: </dt><dd>40° 42' 51,3720''N -74° 0' -21,4920''W<dd>").openPopup();
+L.marker([51.0, 4.5]).addTo(map).bindPopup("<dl><dt><strong>Flanders</strong></dt><dd>  Lat: 51,00000 Lon: 4,50000</dd><dt>Formatted output: </dt><dd>51° 0' 0,0000''N 4° 30' 0,0000''E<dd>").openPopup();
+L.marker([53.07516, 8.80777]).addTo(map).bindPopup("<dl><dt><strong>Bremen</strong></dt><dd>  Lat: 53,07516 Lon: 8,80777</dd><dt>Formatted output: </dt><dd>53° 4' 30,5760''N 8° 48' 27,9720''E<dd>").openPopup();
+L.marker([53.95763, -1.08271]).addTo(map).bindPopup("<dl><dt><strong>York</strong></dt><dd>  Lat: 53,95763 Lon: -1,08271</dd><dt>Formatted output: </dt><dd>53° 57' 27,4680''N -1° -4' -57,7560''W<dd>").openPopup();
+L.marker([52.16045, -0.70312]).addTo(map).bindPopup("<dl><dt><strong>England</strong></dt><dd>  Lat: 52,16045 Lon: -0,70312</dd><dt>Formatted output: </dt><dd>52° 9' 37,6200''N 0° -42' -11,2320''W<dd>").openPopup();
+L.marker([51.50853, -0.12574]).addTo(map).bindPopup("<dl><dt><strong>London</strong></dt><dd>  Lat: 51,50853 Lon: -0,12574</dd><dt>Formatted output: </dt><dd>51° 30' 30,7080''N 0° -7' -32,6640''W<dd>").openPopup();
+L.marker([51.03297, 2.377]).addTo(map).bindPopup("<dl><dt><strong>Dunkirk</strong></dt><dd>  Lat: 51,03297 Lon: 2,37700</dd><dt>Formatted output: </dt><dd>51° 1' 58,6920''N 2° 22' 37,2000''E<dd>").openPopup();
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+<div id="nearby-box" style="z-index:1000; background-color: white; opacity: 0.7; width: 200px; position: relative; top: 50px;">
+
+<div class="tab">
+<button class="tablinks" onclick="openCity(event, 'New York')">New York</button>
+
+<button class="tablinks" onclick="openCity(event, 'Flanders')">Flanders</button>
+
+<button class="tablinks" onclick="openCity(event, 'Bremen')">Bremen</button>
+
+<button class="tablinks" onclick="openCity(event, 'York')">York</button>
+
+<button class="tablinks" onclick="openCity(event, 'England')">England</button>
+
+<button class="tablinks" onclick="openCity(event, 'London')">London</button>
+
+<button class="tablinks" onclick="openCity(event, 'Dunkirk')">Dunkirk</button>
+</div>
+<div id="New York" class="tabcontent">
+<strong>Nearby places towards New York</strong>
+<ul>
